@@ -3,10 +3,10 @@ import { projectIcons } from '../components/Icons';
 
 import { projects } from '../utils/projectsData';
 
-const Home = () => (
-  <div className="home">
-	Hello World!!
-  </div>
-);
+const Home = () => {
+
+
+	return <div className="home">Hello World!!</div>
+};
 
 export default Home;
