@@ -3,7 +3,7 @@
     "plugins": ["prettier"],
     "rules": {
       "@next/next/google-font-display": "off",
-      "prettier/prettier": ["warning"]
+      "prettier/prettier": ["warn"]
 
     }
   }

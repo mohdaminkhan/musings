@@ -10,7 +10,7 @@ const Home = () => {
 
 		Hello World!!
 
-		<Link href="about"> <a>About</a> </Link>
+		<Link href="/about"> <a>About</a> </Link>
 
 
 		</div>
