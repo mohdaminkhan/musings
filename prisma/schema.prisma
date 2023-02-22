@@ -9,3 +9,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model Post {
+  id            String     @id @default(uuid())
+  stars         Int
+  title         String
+  articleText   String     @db.Text
+  dateSubmitted DateTime   @default(now())
+  Comments      Comments[]
+}
