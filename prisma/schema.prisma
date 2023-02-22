@@ -19,3 +19,14 @@ model Post {
   dateSubmitted DateTime   @default(now())
   Comments      Comments[]
 }
+
+
+model Comments {
+  id            String   @id @default(uuid())
+  body          String   @db.Text
+  dateSubmitted DateTime @default(now())
+  commentText   String   @db.Text
+  author        String
+  belongsToId   String
+  belongsTo     Post     @relation(fields: [belongsToId], references: [id])
+}
