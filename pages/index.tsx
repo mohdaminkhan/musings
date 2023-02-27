@@ -17,11 +17,26 @@ function Title() {
 const Home = () => {
   return (
     <div className="home">
-      Hello World!!
+      <nav>
+        <ul>
+          <li>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/posts">
+              <a>Posts</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/links">
+              <a>Links</a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <Title />
-      <Link href="/about">
-        <a>About</a>
-      </Link>
     </div>
   );
 };
