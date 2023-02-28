@@ -10,7 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Post {
   id            String     @id @default(uuid())
   stars         Int
@@ -20,13 +19,12 @@ model Post {
   Comments      Comments[]
 }
 
-
 model Comments {
   id            String   @id @default(uuid())
   body          String   @db.Text
   dateSubmitted DateTime @default(now())
-  commentText   String   @db.Text
   author        String
+  stars         Int
   belongsToId   String
   belongsTo     Post     @relation(fields: [belongsToId], references: [id])
 }
