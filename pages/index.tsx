@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { projects } from '../utils/projectsData';
 import * as React from 'react';
 import styles from '../styles/modules/global.module.scss';
-import { useReducer } from 'react';
+import { useReducer, Fragment } from 'react';
+import { Navigation } from '../components/navigation';
 
 
 interface Post {
@@ -16,7 +17,7 @@ interface Post {
 
 }
 
-const posts: Post[] = [{ name: "amin", date: Date.now().toString(), body: "there was a young lady from the kentucit" }, { name: "amin", date: Date.now().toString(), body: "Once upon a time there was a young lad..." }, { name: "amin", date: Date.now().toString(), body: "In a galaxy far, far away" }]
+const posts: Post[] = [{ name: "amin", date: Date.now().toString(), body: "there was a young lady from the kentucit" }, { name: "peter", date: Date.now().toString(), body: "Once upon a time there was a young lad..." }, { name: "karen", date: Date.now().toString(), body: "In a galaxy far, far away" }]
 
 
 export function getStaticProps() {
@@ -39,36 +40,46 @@ function Title() {
   );
 }
 
-const Home: React.FC<{ results: Post[] }> = ({ results: [...posts] }) => {
+interface IndexProps extends React.PropsWithChildren {
+
+  results: Post[]
+
+
+}
+const Home: React.FC<IndexProps> = ({ results: [...myposts] }) => {
 
 
   const [savedPosts, dispatch] = useReducer((state, action) => { return [...state, action] }, posts)
 
 
   return (
-    <div className="home">
+    <div>
       <nav>
-        <ul>
-          <li>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/posts">
-              <a>Posts</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/links">
-              <a>Links</a>
-            </Link>
-          </li>
-        </ul>
+        {String.fromCharCode(128064)}
+        <Navigation >
+          <ul>
+            <li>
+              <Link href="/about">
+                <a> {String.fromCharCode(128513)} About</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/posts">
+                <a>{String.fromCharCode(128047)}Posts</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/links">
+                <a>&#127810 Links</a>
+              </Link>
+            </li>
+          </ul>
+        </Navigation>
       </nav>
       <Title />
-
-      {posts.map(post => { return <div>{post.name}<p>{post.body}</p></div> })}
+      {myposts.map(post => { return <div key={post.name}>{post.name}<p>{post.body}</p></div> })}
+      <div>
+      </div>
     </div>
   );
 };

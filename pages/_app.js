@@ -5,6 +5,8 @@ import '../styles/main.css';
 export default function MyApp({ Component, pageProps }) {
   return (
     <div>
+      <div>This is the App Container
+      </div>
       <Component {...pageProps} />
     </div>
   );
