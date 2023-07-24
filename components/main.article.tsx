@@ -1,8 +1,8 @@
 
-interface Post {
+interface BlogPostEntry {
 
-	name: string,
-	dateAuthored: Date,
+	heading: string,
+	dateAuthored: string,
 	body: string,
 
 }
